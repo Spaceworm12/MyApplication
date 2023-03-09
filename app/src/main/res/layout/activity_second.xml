@@ -12,6 +12,15 @@
     android:orientation="vertical"
     tools:ignore="ImageDependencies">
 
+    <!--
+        android:text - вынести в ресурсы
+        android:paddingLeft и android:paddingRight - так же вынести размеры в ресурсы
+        android:textSize - висит ошибка "Should use "sp" instead of "dp" for text sizes", исправь и почитай об отличиях
+        android:onClick - тоже избавиться, вешать слушаетель на кнопку
+        android:id="@+id/thisIsImage" - this_is_image
+        android:id="@+id/backToTheFirstScreen" - аналогично, в xml используем только snake_case
+    -->
+
     <TextView
         android:id="@+id/thisIsImage"
         android:layout_width="wrap_content"
@@ -25,6 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_gravity="center"
