@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Viktor">
+    android:id="@+id/backToTheFirstScreen"
+    android:layout_width="wrap_content"
+    android:layout_height="74dp"
+    android:text="@string/to_first"
+    android:textColor="@color/black"
+    android:textSize="20sp"
+    </style>
+</resources>
