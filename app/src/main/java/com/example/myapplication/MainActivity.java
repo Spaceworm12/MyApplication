@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_CODE_SETTING_ACTIVITY = 99;
+    private static final String PASS = "KEY";
     String s;
 
     @Override
@@ -21,43 +23,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Button b = (Button) findViewById(R.id.goToTheNextScreenButton);
         b.setOnClickListener(this);
-
-//        if(getIntent() != null) {
-//            String text = getIntent().getExtras().getString(PASS);
-//            if (text == null) {
-//                setData("");
-//            } else {
-//                setData(text);
-//            }
-//        }
     }
 
-    public void onClick(View view) {
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_SETTING_ACTIVITY);
-    }
+        public void onClick (View view){
+            Intent intent = new Intent(this, SecondActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_SETTING_ACTIVITY);
+        }
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode != REQUEST_CODE_SETTING_ACTIVITY) {
-            super.onActivityResult(requestCode, resultCode, data);
-            return;
-        }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("myLogs", "requestCode = " + requestCode + ", resultCode = " + resultCode);
 
-        if (resultCode == RESULT_OK) {
-            assert data != null;
-            s = data.getExtras().getString(PASS);
-            if (s == null) {
-                setData("");
-            } else {
-                setData(s);
+        if (requestCode == REQUEST_CODE_SETTING_ACTIVITY) {
+            if (resultCode == RESULT_OK) {
+                String resultString = data.getStringExtra(PASS);
+                setData(resultString);
             }
         }
     }
 
-    private void setData(String s) {
+    private void setData(String f) {
         TextView textView = findViewById(R.id.textView);
-        textView.setText(s);
+        textView.setText(f);
     }
 }

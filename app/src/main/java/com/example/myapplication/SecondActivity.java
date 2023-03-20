@@ -13,8 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String PASS = "PASS";
-    private String z = "";
+    private static final String PASS = "KEY";
+    private String z = " ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +46,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra(PASS,z);
         setResult(RESULT_OK, intent);
-
         this.finish();
     }
 
