@@ -22,7 +22,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         Button b = (Button) findViewById(R.id.backToTheFirstScreen);
         b.setOnClickListener(this);
         EditText editText = findViewById(R.id.editText);
-        TextView textView = findViewById(R.id.textView);
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
