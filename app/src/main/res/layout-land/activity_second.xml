@@ -42,7 +42,6 @@
 
     <Button
         android:id="@+id/button_1"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_width="240dp"
         android:text="1"
@@ -53,7 +52,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editText" />
     <Button
         android:id="@+id/button_2"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_width="240dp"
         android:text="2"
@@ -64,7 +62,6 @@
         app:layout_constraintTop_toBottomOf="@+id/button_1" />
     <Button
         android:id="@+id/button_3"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_width="240dp"
         android:text="3"
@@ -76,7 +73,6 @@
 
     <Button
         android:id="@+id/button_4"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_width="240dp"
         android:text="4"
