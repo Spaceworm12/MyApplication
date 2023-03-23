@@ -50,5 +50,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         setResult(RESULT_OK, intent);
         this.finish();
     }
+    public void Button1(){
+        Button c = findViewById(R.id.button_1);
+        c.setOnClickListener(this::onClick);
+    }
 
 }

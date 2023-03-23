@@ -12,6 +12,10 @@
         android:layout_height="60dp"
         android:textSize="34sp"
         android:background="#921D43D1"
+        android:shadowColor="#ff0000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
