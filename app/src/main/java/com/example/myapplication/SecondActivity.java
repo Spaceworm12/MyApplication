@@ -23,6 +23,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     Button ButtonFive;
     Button ButtonSix;
     Button ButtonFour;
+    Button ButtonClear;
 
 
     @Override
@@ -37,12 +38,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         ButtonFour = (Button)findViewById(R.id.button_4);
         ButtonFive = (Button)findViewById(R.id.button_5);
         ButtonSix = (Button)findViewById(R.id.button_6);
+        ButtonClear = (Button)findViewById(R.id.buttonClear);
         EditText editText = findViewById(R.id.editText);
         TextView textView = findViewById(R.id.textView);
         View.OnClickListener oclBtn1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("1");
+                textView.setText(textView.getText()+"1");
 
             }
         };
@@ -50,7 +52,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("2");
+                textView.setText(textView.getText()+"2");
 
             }
         };
@@ -58,7 +60,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn3 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("3");
+                textView.setText(textView.getText()+"3");
 
             }
         };
@@ -66,7 +68,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn4 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("4");
+                textView.setText(textView.getText()+"4");
 
             }
         };
@@ -74,7 +76,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn5 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("5");
+                textView.setText(textView.getText()+"5");
 
             }
         };
@@ -82,11 +84,19 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn6 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("6");
+                textView.setText(textView.getText()+"6");
 
             }
         };
         ButtonSix.setOnClickListener(oclBtn6);
+        View.OnClickListener oclBtnclear = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setText("");
+
+            }
+        };
+        ButtonClear.setOnClickListener(oclBtnclear);
 
 
         editText.addTextChangedListener(new TextWatcher() {

@@ -22,6 +22,7 @@
         android:shadowDy="2"
         android:textAlignment="center"
         android:shadowRadius="5"
+        android:maxLength="2"
         app:layout_constraintBottom_toTopOf="@+id/backToTheFirstScreen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -103,6 +104,16 @@
         app:layout_constraintBaseline_toBaselineOf="@id/button_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_4" />
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="clear"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_4" />
 
     <Button
         android:id="@+id/backToTheFirstScreen"
