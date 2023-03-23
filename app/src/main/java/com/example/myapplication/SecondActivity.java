@@ -52,7 +52,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText()+"2");
+                if (textView.length()==2) {
+                    textView.setText("2" + textView.getText());
+                }else{textView.setText("2");}
 
             }
         };
