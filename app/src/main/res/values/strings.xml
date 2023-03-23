@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Расту как разработчик</string>
     <string name="image">ANDROID</string>
     <string name="to_first">GO TO THE FIRST ACTIVITY</string>
     <string name="to_second">GO TO THE SECOND ACTIVITY</string>
