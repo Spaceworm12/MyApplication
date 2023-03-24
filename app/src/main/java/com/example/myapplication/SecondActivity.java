@@ -17,6 +17,10 @@ import org.w3c.dom.Text;
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String PASS = "KEY";
     private String z = " ";
+    String simb;
+    TextView textView;
+    EditText editText;
+    private final static String NAME_KEY = "NAME_KEY";
     Button ButtonOne;
     Button ButtonTwo;
     Button ButtonThree;
@@ -39,8 +43,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         ButtonFive = (Button)findViewById(R.id.button_5);
         ButtonSix = (Button)findViewById(R.id.button_6);
         ButtonClear = (Button)findViewById(R.id.buttonClear);
-        EditText editText = findViewById(R.id.editText);
-        TextView textView = findViewById(R.id.textView);
+        editText = findViewById(R.id.editText);
+        textView = findViewById(R.id.textView);
+
         View.OnClickListener oclBtn1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,10 +57,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         View.OnClickListener oclBtn2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (textView.length()==2) {
-                    textView.setText("2" + textView.getText());
-                }else{textView.setText("2");}
-
+                textView.setText(textView.getText() + "2");
             }
         };
         ButtonTwo.setOnClickListener(oclBtn2);
@@ -121,8 +123,22 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
     }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString(NAME_KEY, simb);
+    }
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        simb = savedInstanceState.getString(NAME_KEY);
+        if (simb!=null) {
+            textView.setText(simb);
+        }else{
+            textView.setText("empty");
+        }
+    }
 public void onClick(View view) {
-        TextView tw = findViewById(R.id.textView);
         Intent intent = new Intent(this, MainActivity.class);
          intent.putExtra(PASS, z);
          setResult(RESULT_OK, intent);

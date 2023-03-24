@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:background="#CF1EE3"
         android:textStyle="bold"
+        android:maxLength="2"
         android:hint="Введите что либо"
         android:textAlignment="center"
         android:textColorHint="@color/teal_200"

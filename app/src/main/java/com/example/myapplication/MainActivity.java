@@ -21,7 +21,9 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String PASS = "KEY";
-
+    String simb;
+    private final static String NAME_KEY = "NAME_KEY";
+    TextView ViewSimb;
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -43,15 +45,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Button b = (Button) findViewById(R.id.goToTheNextScreenButton);
         b.setOnClickListener(this);
+
+        ViewSimb=findViewById(R.id.textView);
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(NAME_KEY, simb);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        simb = savedInstanceState.getString(NAME_KEY);
+        ViewSimb.setText(simb);
+
     }
 
     public void onClick(View view) {
-        TextView tw = findViewById(R.id.textView);
-        String s = tw.getText().toString();
+        ViewSimb = findViewById(R.id.textView);
+        String s = ViewSimb.getText().toString();
         Intent intent = new Intent(this, SecondActivity.class);
         mStartForResult.launch(intent);
     }
-
 
 }
     

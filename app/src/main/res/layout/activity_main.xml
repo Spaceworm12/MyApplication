@@ -16,6 +16,7 @@
         android:shadowColor="#ff0000"
         android:shadowDx="2"
         android:shadowDy="2"
+        android:maxLength="2"
         android:shadowRadius="5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
