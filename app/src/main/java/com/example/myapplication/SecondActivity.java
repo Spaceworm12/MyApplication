@@ -20,7 +20,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     String simb;
     TextView textView;
     EditText editText;
-    private final static String NAME_KEY = "NAME_KEY";
+    final static String NAME_KEY = "NAME_KEY";
     Button ButtonOne;
     Button ButtonTwo;
     Button ButtonThree;
