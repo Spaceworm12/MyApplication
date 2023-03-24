@@ -125,18 +125,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putString(NAME_KEY, simb);
+        super.onSaveInstanceState(savedInstanceState);
     }
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
+        textView.setText(savedInstanceState.getString(NAME_KEY));
         super.onRestoreInstanceState(savedInstanceState);
-        simb = savedInstanceState.getString(NAME_KEY);
-        if (simb!=null) {
-            textView.setText(simb);
-        }else{
-            textView.setText("empty");
-        }
     }
 public void onClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
