@@ -20,9 +20,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String PASS = "KEY";
+    private static final String PASS = "PASS";
     String simb;
-    private final static String NAME_KEY = "NAME_KEY";
+    final static String LANDSAVE = "LANDSAVE";
     TextView ViewSimb;
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             });
-
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        String save = ViewSimb.getText().toString();
+        outState.putString("LANDSAVE", save);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button b = findViewById(R.id.goToTheNextScreenButton);
         b.setOnClickListener(this);
         ViewSimb=findViewById(R.id.textView);
+        if(savedInstanceState!=null){
+            ViewSimb.setText(savedInstanceState.getString(LANDSAVE));
+        }
 
     }
 

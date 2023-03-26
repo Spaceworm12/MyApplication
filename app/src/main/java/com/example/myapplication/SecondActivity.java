@@ -17,10 +17,10 @@ import org.w3c.dom.Text;
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String PASS = "KEY";
     private String z = " ";
-    String g;
+    String save;
     TextView textView;
     EditText editText;
-    final static String NAME_KEY = "NAME_KEY";
+    final static String LANDSAVE = "LANDSAVE";
     Button ButtonOne;
     Button ButtonTwo;
     Button ButtonThree;
@@ -46,60 +46,54 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         editText = findViewById(R.id.editText);
         textView = findViewById(R.id.textView);
         if(savedInstanceState!=null){
-            textView.setText(savedInstanceState.getString(NAME_KEY));
+            textView.setText(savedInstanceState.getString(LANDSAVE));
         }
         View.OnClickListener oclBtn1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText()+"1");
-
+                Edit(findViewById(R.id.button_1));
             }
         };
         ButtonOne.setOnClickListener(oclBtn1);
         View.OnClickListener oclBtn2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText() + "2");
+                Edit(findViewById(R.id.button_2));
             }
         };
         ButtonTwo.setOnClickListener(oclBtn2);
         View.OnClickListener oclBtn3 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText()+"3");
-
+                Edit(findViewById(R.id.button_3));
             }
         };
         ButtonThree.setOnClickListener(oclBtn3);
         View.OnClickListener oclBtn4 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText()+"4");
-
+                Edit(findViewById(R.id.button_4));
             }
         };
         ButtonFour.setOnClickListener(oclBtn4);
         View.OnClickListener oclBtn5 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText()+"5");
-
+                Edit(findViewById(R.id.button_5));
             }
         };
         ButtonFive.setOnClickListener(oclBtn5);
         View.OnClickListener oclBtn6 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText(textView.getText()+"6");
-
+                Edit(findViewById(R.id.button_6));
             }
         };
         ButtonSix.setOnClickListener(oclBtn6);
         View.OnClickListener oclBtnclear = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("");
-
+                textView.setText(null);
             }
         };
         ButtonClear.setOnClickListener(oclBtnclear);
@@ -126,8 +120,19 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     }
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        String g = textView.getText().toString();
-        outState.putString("NAME_KEY", g);
+        String save = textView.getText().toString();
+        outState.putString("LANDSAVE", save);
+    }
+    public void Edit(Button f) {
+        if (textView.length() <= 2) {
+            textView.setText(textView.getText() + f.getText().toString());
+        }
+        if (textView.length() > 2) {
+            StringBuilder build = new StringBuilder(textView.getText().toString());
+            build.deleteCharAt(0);
+            build.toString();
+            textView.setText(build.substring(1));
+        }
     }
 public void onClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);

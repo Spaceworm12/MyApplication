@@ -114,8 +114,8 @@
 
     <Button
         android:id="@+id/backToTheFirstScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="74dp"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="4dp"
         android:text="@string/to_first"
         android:textColor="@color/black"
