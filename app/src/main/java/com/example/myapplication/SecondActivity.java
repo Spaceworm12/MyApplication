@@ -126,7 +126,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     }
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         String g = textView.getText().toString();
         outState.putString("NAME_KEY", g);
     }

@@ -3,4 +3,12 @@
     <string name="image">ANDROID</string>
     <string name="to_first">GO TO THE FIRST ACTIVITY</string>
     <string name="to_second">GO TO THE SECOND ACTIVITY</string>
+    <string name="_2">Введите что либо на подобии текста 2 элемента</string>
+    <string name="_1">1</string>
+    <string name="_2b">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="clear">clear</string>
 </resources>
