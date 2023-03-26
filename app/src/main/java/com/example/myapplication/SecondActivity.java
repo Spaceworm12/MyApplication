@@ -17,7 +17,7 @@ import org.w3c.dom.Text;
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String PASS = "KEY";
     private String z = " ";
-    String simb;
+    String g;
     TextView textView;
     EditText editText;
     final static String NAME_KEY = "NAME_KEY";
@@ -34,18 +34,20 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Button b = (Button) findViewById(R.id.backToTheFirstScreen);
+        Button b = findViewById(R.id.backToTheFirstScreen);
         b.setOnClickListener(this);
-        ButtonTwo = (Button)findViewById(R.id.button_2);
-        ButtonOne = (Button)findViewById(R.id.button_1);
-        ButtonThree = (Button)findViewById(R.id.button_3);
-        ButtonFour = (Button)findViewById(R.id.button_4);
-        ButtonFive = (Button)findViewById(R.id.button_5);
-        ButtonSix = (Button)findViewById(R.id.button_6);
-        ButtonClear = (Button)findViewById(R.id.buttonClear);
+        ButtonTwo = findViewById(R.id.button_2);
+        ButtonOne = findViewById(R.id.button_1);
+        ButtonThree = findViewById(R.id.button_3);
+        ButtonFour = findViewById(R.id.button_4);
+        ButtonFive = findViewById(R.id.button_5);
+        ButtonSix = findViewById(R.id.button_6);
+        ButtonClear = findViewById(R.id.buttonClear);
         editText = findViewById(R.id.editText);
         textView = findViewById(R.id.textView);
-
+        if(savedInstanceState!=null){
+            textView.setText(savedInstanceState.getString(NAME_KEY));
+        }
         View.OnClickListener oclBtn1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +115,6 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 TextView textView = findViewById(R.id.textView);
                 textView.setText(s);
-                z = s.toString();
 
             }
 
@@ -124,20 +125,17 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         });
     }
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString(NAME_KEY, simb);
-        super.onSaveInstanceState(savedInstanceState);
-    }
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        textView.setText(savedInstanceState.getString(NAME_KEY));
-        super.onRestoreInstanceState(savedInstanceState);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String g = textView.getText().toString();
+        outState.putString("NAME_KEY", g);
     }
 public void onClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-         intent.putExtra(PASS, z);
-         setResult(RESULT_OK, intent);
-         this.finish();
+        z=textView.getText().toString();
+        intent.putExtra(PASS, z);
+        setResult(RESULT_OK, intent);
+        this.finish();
         }
 }
 

@@ -43,22 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button b = (Button) findViewById(R.id.goToTheNextScreenButton);
+        Button b = findViewById(R.id.goToTheNextScreenButton);
         b.setOnClickListener(this);
-
         ViewSimb=findViewById(R.id.textView);
-
-    }
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString(NAME_KEY, simb);
-        super.onSaveInstanceState(savedInstanceState);
-    }
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        simb = savedInstanceState.getString(NAME_KEY);
-        ViewSimb.setText(simb);
 
     }
 
