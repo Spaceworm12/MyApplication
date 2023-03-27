@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.w3c.dom.Text;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String PASS = "KEY";
+    private static final String PASS = "PASS";
     private String z = " ";
     String save;
     TextView textView;
@@ -48,6 +48,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if(savedInstanceState!=null){
             textView.setText(savedInstanceState.getString(LANDSAVE));
         }
+
         View.OnClickListener oclBtn1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +56,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             }
         };
         ButtonOne.setOnClickListener(oclBtn1);
+        if (editText.length()>2){
+
+        }
         View.OnClickListener oclBtn2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +118,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (editText.length() > 2) {
+                    StringBuilder builder = new StringBuilder(s);
+                    builder.deleteCharAt(1);
+                    builder.deleteCharAt(0);
+                    editText.setText(builder);
+                    editText.setSelection(1);
+                }
 
             }
         });
@@ -134,6 +145,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
             textView.setText(build.substring(1));
         }
     }
+
 public void onClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         z=textView.getText().toString();

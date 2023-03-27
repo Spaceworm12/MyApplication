@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:textSize="34sp"
         android:background="#921D43D1"
         android:shadowColor="#ff0000"
@@ -25,16 +25,13 @@
     <Button
         android:id="@+id/goToTheNextScreenButton"
         style="@style/Viktor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
+        android:layout_width="700dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
         android:text="@string/to_second"
         android:textColor="@color/black"
-        android:textSize="20sp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        android:textSize="40sp"
+        android:gravity="center"
+        />
 
 </FrameLayout>

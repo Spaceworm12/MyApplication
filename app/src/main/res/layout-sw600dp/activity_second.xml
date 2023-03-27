@@ -6,40 +6,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#37D3EDEB"
-    android:paddingEnd="15dp"
-    android:paddingStart="15dp"
     android:gravity="center"
     tools:ignore="ImageDependencies">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="#921D43D1"
-        android:maxLength="3"
+        android:textSize="34sp"
         android:shadowColor="#ff0000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="5"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:shadowRadius="5"
+        android:maxLength="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#928095E1"
+        android:layout_height="50dp"
+        android:background="#6873D6"
         android:textStyle="bold"
-        android:textSize="30sp"
         android:layout_marginTop="10dp"
-        android:maxLength="3"
-        android:inputType="textPersonName"
-        android:hint="@string/_2"
+        android:hint="Введите что либо"
         android:textAlignment="center"
         android:textColorHint="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -48,88 +42,89 @@
 
     <Button
         android:id="@+id/button_1"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/_1"
+        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+    <Button
+        android:id="@+id/button_2"
+        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:text="2"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
     <Button
-        android:id="@+id/button_2"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:text="@string/_2b"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_1" />
-    <Button
         android:id="@+id/button_3"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:text="@string/_3"
+        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:text="3"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        />
 
     <Button
         android:id="@+id/button_4"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:text="@string/_4"
+        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:text="4"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_3" />
 
     <Button
         android:id="@+id/button_5"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:text="@string/_5"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="5"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/button_4"
-        app:layout_constraintStart_toStartOf="@+id/button_4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_2" />
 
     <Button
         android:id="@+id/button_6"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:text="@string/_6"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="6"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/button_5"
-        app:layout_constraintStart_toStartOf="@+id/button_5"/>
+        app:layout_constraintBaseline_toBaselineOf="@id/button_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
     <Button
         android:id="@+id/buttonClear"
-        android:layout_width="500dp"
-        android:layout_height="70dp"
-        android:text="@string/clear"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="clear"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_6" />
+        app:layout_constraintTop_toBottomOf="@+id/button_4" />
 
     <Button
         android:id="@+id/backToTheFirstScreen"
-        android:layout_width="650dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/to_first"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonClear" />
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
