@@ -24,12 +24,12 @@
     <Button
         android:id="@+id/goToTheNextScreenButton"
         style="@style/Viktor"
-        android:layout_width="550dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/to_second"
         android:textColor="@color/black"
-        android:textSize="40sp"
+        android:textSize="20sp"
         />
 
 </FrameLayout>
