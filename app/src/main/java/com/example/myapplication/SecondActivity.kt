@@ -1,158 +1,95 @@
-package com.example.myapplication;
+package com.example.myapplication
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.content.Intent
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+class SecondActivity : AppCompatActivity() {
+    private var result = " "
+    private lateinit var textView: TextView
+    private lateinit var editText: EditText
+    private lateinit var buttonOne: Button
+    private lateinit var buttonTwo: Button
+    private lateinit var buttonThree: Button
+    private lateinit var buttonFive: Button
+    private lateinit var buttonSix: Button
+    private lateinit var buttonFour: Button
+    private lateinit var buttonClear: Button
+    private lateinit var buttonBack: Button
 
-import org.w3c.dom.Text;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_second)
 
-public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String PASS = "PASS";
-    private String z = " ";
-    String save;
-    TextView textView;
-    EditText editText;
-    final static String LANDSAVE = "LANDSAVE";
-    Button ButtonOne;
-    Button ButtonTwo;
-    Button ButtonThree;
-    Button ButtonFive;
-    Button ButtonSix;
-    Button ButtonFour;
-    Button ButtonClear;
+        initViews()
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
-        Button b = findViewById(R.id.backToTheFirstScreen);
-        b.setOnClickListener(this);
-        ButtonTwo = findViewById(R.id.button_2);
-        ButtonOne = findViewById(R.id.button_1);
-        ButtonThree = findViewById(R.id.button_3);
-        ButtonFour = findViewById(R.id.button_4);
-        ButtonFive = findViewById(R.id.button_5);
-        ButtonSix = findViewById(R.id.button_6);
-        ButtonClear = findViewById(R.id.buttonClear);
-        editText = findViewById(R.id.editText);
-        textView = findViewById(R.id.textView);
-        if(savedInstanceState!=null){
-            textView.setText(savedInstanceState.getString(LANDSAVE));
+        if (savedInstanceState != null) {
+            textView.text = savedInstanceState.getString(LAND_SAVE)
         }
 
-        View.OnClickListener oclBtn1 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit(findViewById(R.id.button_1));
-            }
-        };
-        ButtonOne.setOnClickListener(oclBtn1);
-        if (editText.length()>2){
+        initClickListeners()
 
-        }
-        View.OnClickListener oclBtn2 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit(findViewById(R.id.button_2));
-            }
-        };
-        ButtonTwo.setOnClickListener(oclBtn2);
-        View.OnClickListener oclBtn3 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit(findViewById(R.id.button_3));
-            }
-        };
-        ButtonThree.setOnClickListener(oclBtn3);
-        View.OnClickListener oclBtn4 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit(findViewById(R.id.button_4));
-            }
-        };
-        ButtonFour.setOnClickListener(oclBtn4);
-        View.OnClickListener oclBtn5 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit(findViewById(R.id.button_5));
-            }
-        };
-        ButtonFive.setOnClickListener(oclBtn5);
-        View.OnClickListener oclBtn6 = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit(findViewById(R.id.button_6));
-            }
-        };
-        ButtonSix.setOnClickListener(oclBtn6);
-        View.OnClickListener oclBtnclear = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText(null);
-            }
-        };
-        ButtonClear.setOnClickListener(oclBtnclear);
-
-
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                TextView textView = findViewById(R.id.textView);
-                textView.setText(s);
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (editText.length() > 2) {
-                    StringBuilder builder = new StringBuilder(s);
-                    builder.deleteCharAt(1);
-                    builder.deleteCharAt(0);
-                    editText.setText(builder);
-                    editText.setSelection(1);
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (editText.length() > 1) {
+                    editText.setText(s.toString().drop(1))
+                    editText.setSelection(1)
                 }
-
+                if (editText.text.isNotBlank()) checkAndSetResult(editText.text.last().toString())
             }
-        });
+
+            override fun afterTextChanged(s: Editable) {}
+        })
     }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        String save = textView.getText().toString();
-        outState.putString("LANDSAVE", save);
+
+    public override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(LAND_SAVE, textView.text.toString())
     }
-    public void Edit(Button f) {
-        if (textView.length() <= 2) {
-            textView.setText(textView.getText() + f.getText().toString());
-        }
-        if (textView.length() > 2) {
-            StringBuilder build = new StringBuilder(textView.getText().toString());
-            build.deleteCharAt(0);
-            build.toString();
-            textView.setText(build.substring(1));
+
+    private fun checkAndSetResult(text: String) {
+        when {
+            textView.length() == 2 -> textView.text = String.format("%s%s", textView.text.drop(1), text)
+            else -> textView.text = String.format("%s%s", textView.text, text)
         }
     }
 
-public void onClick(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        z=textView.getText().toString();
-        intent.putExtra(PASS, z);
-        setResult(RESULT_OK, intent);
-        this.finish();
+    private fun initViews() {
+        textView = findViewById(R.id.tv_result_title)
+        editText = findViewById(R.id.et_result)
+        buttonOne = findViewById(R.id.button_one)
+        buttonTwo = findViewById(R.id.button_two)
+        buttonThree = findViewById(R.id.button_three)
+        buttonFive = findViewById(R.id.button_five)
+        buttonSix = findViewById(R.id.button_six)
+        buttonFour = findViewById(R.id.button_four)
+        buttonClear = findViewById(R.id.bt_clear)
+        buttonBack = findViewById(R.id.bt_back)
+    }
+
+    private fun initClickListeners() {
+        buttonOne.setOnClickListener { checkAndSetResult(buttonOne.text.toString()) }
+        buttonTwo.setOnClickListener { checkAndSetResult(buttonTwo.text.toString()) }
+        buttonThree.setOnClickListener { checkAndSetResult(buttonThree.text.toString()) }
+        buttonFour.setOnClickListener { checkAndSetResult(buttonFour.text.toString()) }
+        buttonFive.setOnClickListener { checkAndSetResult(buttonFive.text.toString()) }
+        buttonSix.setOnClickListener { checkAndSetResult(buttonSix.text.toString()) }
+
+        buttonClear.setOnClickListener { textView.text = "" }
+
+        buttonBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            result = textView.text.toString()
+            intent.putExtra(PASS, result)
+            setResult(RESULT_OK, intent)
+            finish()
         }
+    }
+
 }
-
-

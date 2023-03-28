@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="50dp"
     android:background="#37D3EDEB"
+    android:padding="50dp"
     android:visibility="visible">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:textSize="34sp"
         android:background="#921D43D1"
+        android:maxLength="2"
         android:shadowColor="#ff0000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:maxLength="2"
         android:shadowRadius="5"
-        />
-
+        android:textSize="34sp" />
 
     <Button
-        android:id="@+id/goToTheNextScreenButton"
-        style="@style/Viktor"
+        android:id="@+id/bt_next_screen"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/to_second"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        />
+        android:textColor="@color/black" />
 
 </FrameLayout>
