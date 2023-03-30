@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         if (savedInstanceState != null) {
-            binding.tvResult.text = savedInstanceState.getString(LAND_SAVE)
+            binding.tvResult.text = savedInstanceState.getString("LAND_SAVE")
         }
 
         binding.btNextScreen.setOnClickListener(this)
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(LAND_SAVE, binding.tvResult.text.toString())
+        outState.putString("LAND_SAVE", binding.tvResult.text.toString())
     }
 
     override fun onClick(view: View) {

@@ -42,7 +42,7 @@ class SecondActivity : AppCompatActivity() {
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(LAND_SAVE, binding.etResult.text.toString())
+        outState.putString("LAND_SAVE", binding.tvResultTitle.text.toString())
     }
 
     private fun checkAndSetResult(text: String) {
