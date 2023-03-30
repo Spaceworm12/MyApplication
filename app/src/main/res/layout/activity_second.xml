@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#37D3EDEB"
+    android:background="#A691BFB9"
     android:paddingEnd="15dp"
     android:paddingStart="15dp"
     android:gravity="center"
@@ -13,17 +13,14 @@
 
     <TextView
         android:id="@+id/tv_result_title"
+        style="@style/customEV"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="#921D43D1"
         android:maxLength="3"
         android:shadowColor="#ff0000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="5"
-        android:textAlignment="center"
-        android:textSize="34sp"
+        android:shadowRadius="7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,34 +28,27 @@
 
     <EditText
         android:id="@+id/et_result"
+        style="@style/customEV"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#928095E1"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         android:maxLength="3"
-        android:inputType="textPersonName"
         android:hint="@string/_2"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_result_title" />
 
     <Button
         android:id="@+id/button_one"
-        style="@style/MainButton.PrimaryButton"
+        style="@style/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="@string/_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_result" />
     <Button
         android:id="@+id/button_two"
-        style="@style/MainButton.PrimaryButton"
+        style="@style/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_2b"
@@ -67,33 +57,30 @@
         app:layout_constraintTop_toBottomOf="@+id/button_one" />
     <Button
         android:id="@+id/button_three"
+        style="@style/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_3"
-        android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_two" />
 
     <Button
         android:id="@+id/button_four"
+        style="@style/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_4"
-        android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_three" />
 
     <Button
         android:id="@+id/button_five"
+        style="@style/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_5"
-        android:textColor="@color/black"
-        android:textSize="20sp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toStartOf="@+id/button_four"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_four"
@@ -101,30 +88,28 @@
 
     <Button
         android:id="@+id/button_six"
+        style="@style/mainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_6"
-        android:textColor="@color/black"
-        android:textSize="20sp"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toEndOf="@+id/button_four"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_four"/>
 
     <Button
         android:id="@+id/bt_clear"
-        style="@style/MainButton"
+        style="@style/mainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/normal_margin"
-        android:text="@string/clear"
-        android:layout_marginTop="@dimen/big_margin"
+        android:text="@string/CLEAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_six" />
 
     <Button
         android:id="@+id/bt_back"
-        style="@style/MainButton"
+        style="@style/mainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"

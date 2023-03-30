@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="MainButton" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">20sp</item>
-        <item name="strokeColor">@color/design_default_color_primary</item>
-        <item name="backgroundTint">@color/design_default_color_secondary_variant</item>
-        <item name="strokeWidth">5dp</item>
-    </style>
-
-    <style name="MainButton.PrimaryButton">
-        <item name="strokeColor">@color/black</item>
-        <item name="backgroundTint">@color/design_default_color_secondary</item>
-        <item name="strokeWidth">3dp</item>
-        <item name="elevation">10dp</item>
-        <item name="shapeAppearance">@style/ButtonShape</item>
-    </style>
+<resources xmlns:ns1="http://schemas.android.com/apk/res-auto">
 
     <style name="ButtonShape" parent="">
         <item name="cornerFamily">?attr/shapeCornerFamily</item>
         <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="mainButton" parent="Widget.Material3.Button.UnelevatedButton">
+        <item name="enforceTextAppearance">false</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="iconTint">@color/purple_200</item>
+        <item name="backgroundTint">@color/teal_200</item>
+        <item name="android:background">@color/purple_700</item>
+        <item name="android:textAppearance">@macro/m3_comp_filled_button_label_text_type</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.FilledButton.Container.Shape</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button</item>
+        <item name="android:layout_marginTop">10dp</item>
+
+    </style>
+
+    <style name="customEV" parent="Widget.Material3.TextInputEditText.FilledBox">
+        <item name="enforceTextAppearance">false</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColor">#757575</item>
+        <item name="iconTint">@color/purple_200</item>
+        <item name="backgroundTint">@color/teal_200</item>
+        <item name="android:background">@color/purple_700</item>
+        <item name="android:textAppearance">@macro/m3_comp_filled_button_label_text_type</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.FilledButton.Container.Shape</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="textAllCaps">false</item>
+
     </style>
 
 

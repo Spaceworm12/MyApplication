@@ -9,19 +9,16 @@
 
     <TextView
         android:id="@+id/tv_result"
+        style="@style/customEV"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#921D43D1"
-        android:shadowColor="#ff0000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="5"
-        android:textSize="34sp" />
+        android:textSize="40sp"
+       />
 
 
     <Button
         android:id="@+id/bt_next_screen"
-        style="@style/MainButton"
+        style="@style/mainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
