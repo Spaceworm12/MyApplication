@@ -10,7 +10,7 @@
         <item name="cornerSize">8dp</item>
     </style>
 
-    <style name="mainButton" parent="Widget.Material3.Button.UnelevatedButton">
+    <style name="MainButton" parent="Widget.Material3.Button.UnelevatedButton">
         <item name="enforceTextAppearance">false</item>
         <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/black</item>
@@ -24,7 +24,7 @@
 
     </style>
 
-    <style name="customEV" parent="Widget.Material3.TextInputEditText.FilledBox">
+    <style name="CustomEV" parent="Widget.Material3.TextInputEditText.FilledBox">
         <item name="enforceTextAppearance">false</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>

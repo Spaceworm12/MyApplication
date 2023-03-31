@@ -9,20 +9,20 @@
 
     <TextView
         android:id="@+id/tv_result"
-        style="@style/customEV"
+        style="@style/CustomEV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#921D43D1"
         android:maxLength="2"
-        android:shadowColor="#ff0000"
+        android:shadowColor="@color/black"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="5"
+        android:shadowRadius="2"
         android:textSize="34sp" />
 
     <Button
         android:id="@+id/bt_next_screen"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

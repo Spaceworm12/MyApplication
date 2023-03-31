@@ -2,7 +2,11 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -10,10 +14,9 @@ import com.example.myapplication.databinding.ActivityMainBinding
 
 internal const val PASS = "PASS"
 internal const val LAND_SAVE = "LAND_SAVE"
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-    // Следи за подсказками студии
-    private lateinit var binding: ActivityMainBinding
 
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var binding: ActivityMainBinding
     private var textResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->

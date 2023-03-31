@@ -13,14 +13,14 @@
 
     <TextView
         android:id="@+id/tv_result_title"
-        style="@style/customEV"
+        style="@style/CustomEV"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="#921D43D1"
         android:maxLength="3"
-        android:shadowColor="#ff0000"
-        android:shadowRadius="7"
+        android:shadowColor="@color/black"
+        android:shadowRadius="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,7 +28,7 @@
 
     <EditText
         android:id="@+id/et_result"
-        style="@style/customEV"
+        style="@style/CustomEV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="3"
@@ -39,7 +39,7 @@
 
     <Button
         android:id="@+id/button_one"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_1"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_result" />
     <Button
         android:id="@+id/button_two"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_2b"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_one" />
     <Button
         android:id="@+id/button_three"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_3"
@@ -67,7 +67,7 @@
 
     <Button
         android:id="@+id/button_four"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_4"
@@ -77,7 +77,7 @@
 
     <Button
         android:id="@+id/button_five"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_5"
@@ -88,7 +88,7 @@
 
     <Button
         android:id="@+id/button_six"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_6"
@@ -98,7 +98,7 @@
 
     <Button
         android:id="@+id/bt_clear"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/normal_margin"
@@ -109,7 +109,7 @@
 
     <Button
         android:id="@+id/bt_back"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"

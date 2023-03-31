@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/tv_result"
-        style="@style/customEV"
+        style="@style/CustomEV"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:textSize="40sp"
@@ -18,7 +18,7 @@
 
     <Button
         android:id="@+id/bt_next_screen"
-        style="@style/mainButton"
+        style="@style/MainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
