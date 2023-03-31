@@ -2,11 +2,7 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -14,8 +10,9 @@ import com.example.myapplication.databinding.ActivityMainBinding
 
 internal const val PASS = "PASS"
 internal const val LAND_SAVE = "LAND_SAVE"
-private lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    // Следи за подсказками студии
+    private lateinit var binding: ActivityMainBinding
 
     private var textResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -35,7 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         if (savedInstanceState != null) {
-            binding.tvResult.text = savedInstanceState.getString("LAND_SAVE")
+            binding.tvResult.text = savedInstanceState.getString(LAND_SAVE)
         }
 
         binding.btNextScreen.setOnClickListener(this)
@@ -43,7 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("LAND_SAVE", binding.tvResult.text.toString())
+        outState.putString(LAND_SAVE, binding.tvResult.text.toString())
     }
 
     override fun onClick(view: View) {

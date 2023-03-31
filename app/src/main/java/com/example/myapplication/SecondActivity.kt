@@ -4,10 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivitySecondBinding
 
@@ -42,7 +38,7 @@ class SecondActivity : AppCompatActivity() {
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("LAND_SAVE", binding.tvResultTitle.text.toString())
+        outState.putString(LAND_SAVE, binding.tvResultTitle.text.toString())
     }
 
     private fun checkAndSetResult(text: String) {
