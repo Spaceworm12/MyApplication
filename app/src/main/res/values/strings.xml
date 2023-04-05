@@ -13,4 +13,6 @@
     <string name="_6">6</string>
     <string name="CLEAR">CLEAR</string>
     <string name="error_text">WRONG CODE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
