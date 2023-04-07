@@ -2,11 +2,10 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container_view_tag"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A691BFB9"
-    android:keepScreenOn="true"
     android:visibility="visible"
     tools:context=".MainActivity"
     >

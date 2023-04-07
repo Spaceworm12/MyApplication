@@ -1,6 +1,6 @@
-package ru.lesson.fragmentsample
+package com.example.myapplication
+//Некорректное название пакета
 
-import LAND_SAVE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,6 +12,7 @@ import com.example.myapplication.databinding.FragmentSecondBinding
 
 
 class SecondFragment : Fragment() {
+    // Second - название файла не соответствует содержимому
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
@@ -20,9 +21,6 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (savedInstanceState != null) {
-            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE)
-        }
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -31,7 +29,14 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState != null) {
+            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE) ?: "error"
+        }
+        //Null, так как устанавливалось до установки макета
+
         initClickListeners()
+
         binding.etResult.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -44,7 +49,8 @@ class SecondFragment : Fragment() {
                 )
             }
 
-            override fun afterTextChanged(s: Editable) {}
+            override fun afterTextChanged(s: Editable) {
+            }
         })
     }
     override fun onSaveInstanceState(outState: Bundle) {
