@@ -4,13 +4,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
+import com.example.myapplication.Second
 import com.example.myapplication.databinding.FragmentFirstBinding
-import ru.lesson.fragmentsample.SecondFragment
 
 
-internal const val LAND_SAVE = "LAND_SAVE"
 
-class FirstFragment : Fragment() {
+internal const val LAND_SAVE = "com.example.myapplication.LAND_SAVE"
+
+class First : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
@@ -38,7 +39,7 @@ class FirstFragment : Fragment() {
                     R.anim.exit_fragment_out
                 ).addToBackStack("").add(
                     R.id.fragment_container_view_tag,
-                    SecondFragment()
+                    Second()
                 ).commit()
 
         }

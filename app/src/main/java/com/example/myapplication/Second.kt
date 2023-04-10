@@ -1,4 +1,4 @@
-package ru.lesson.fragmentsample
+package com.example.myapplication
 
 import LAND_SAVE
 import android.os.Bundle
@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import com.example.myapplication.databinding.FragmentSecondBinding
 
 
-class SecondFragment : Fragment() {
+class Second : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
@@ -21,7 +21,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         if (savedInstanceState != null) {
-            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE)
+            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE) ?: "error"
         }
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root

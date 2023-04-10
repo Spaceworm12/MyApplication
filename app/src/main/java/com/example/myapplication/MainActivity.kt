@@ -1,6 +1,6 @@
 package com.example.myapplication
 
-import FirstFragment
+import First
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view_tag, FirstFragment()).commit()
+            .replace(R.id.fragment_container_view_tag, First()).commit()
 
     }
 
