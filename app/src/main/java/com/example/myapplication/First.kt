@@ -8,7 +8,6 @@ import com.example.myapplication.Second
 import com.example.myapplication.databinding.FragmentFirstBinding
 
 
-
 internal const val LAND_SAVE = "com.example.myapplication.LAND_SAVE"
 
 class First : Fragment() {
