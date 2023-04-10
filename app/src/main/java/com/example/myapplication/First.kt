@@ -1,16 +1,17 @@
+package com.example.myapplication
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentFirstBinding
-import ru.lesson.fragmentsample.SecondFragment
 
 
-internal const val LAND_SAVE = "LAND_SAVE"
+internal const val LAND_SAVE = "com.example.myapplication.LAND_SAVE"
 
 class FirstFragment : Fragment() {
+    // First - название файла не соответствует содержимому
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
@@ -19,9 +20,6 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (savedInstanceState != null) {
-            binding.tvResult.text = savedInstanceState.getString(LAND_SAVE)
-        }
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -29,18 +27,28 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState != null) {
+            binding.tvResult.text = savedInstanceState.getString(LAND_SAVE)
+        }
+
         binding.btNextScreen.setOnClickListener {
             requireActivity()
-                .supportFragmentManager.beginTransaction().setCustomAnimations(
-                    R.anim.enter_fragment,
-                    R.anim.exit_fragment,
-                    R.anim.enter_fragment_in,
-                    R.anim.exit_fragment_out
-                ).addToBackStack("").add(
-                    R.id.fragment_container_view_tag,
-                    SecondFragment()
-                ).commit()
-
+                .supportFragmentManager.apply {
+                    this.beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.enter_fragment,
+                        R.anim.exit_fragment,
+                        R.anim.enter_fragment_in,
+                        R.anim.exit_fragment_out
+                    )
+                    .add(
+                        R.id.fragment_container,
+                        SecondFragment()
+                    )
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+                }
         }
     }
 

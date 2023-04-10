@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import FirstFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
@@ -15,8 +14,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view_tag, FirstFragment()).commit()
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_container, FirstFragment())
+            .commit()
 
     }
 
