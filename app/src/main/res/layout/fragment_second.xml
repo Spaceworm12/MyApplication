@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A691BFB9"
+    android:background="#00FFDE"
     android:paddingEnd="15dp"
     android:paddingStart="15dp"
+    android:visibility="visible"
     android:gravity="center"
-    tools:ignore="ImageDependencies">
+    >
 
     <TextView
         android:id="@+id/tv_result_title"
@@ -101,7 +102,6 @@
         style="@style/MainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/normal_margin"
         android:text="@string/CLEAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +117,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_clear" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
