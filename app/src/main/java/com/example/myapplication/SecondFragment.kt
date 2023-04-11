@@ -21,6 +21,9 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        if (savedInstanceState != null) {
+            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE) ?: "error"
+        }
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -30,9 +33,7 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (savedInstanceState != null) {
-            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE) ?: "error"
-        }
+
         //Null, так как устанавливалось до установки макета
 
         initClickListeners()
