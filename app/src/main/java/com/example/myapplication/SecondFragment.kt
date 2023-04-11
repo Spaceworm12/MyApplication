@@ -1,5 +1,4 @@
 package com.example.myapplication
-//Некорректное название пакета
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,12 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import com.example.myapplication.databinding.FragmentSecondBinding
 
 
 class SecondFragment : Fragment() {
-    // Second - название файла не соответствует содержимому
-
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
 
@@ -21,8 +21,8 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (savedInstanceState != null) {
-            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE) ?: "error"
+        savedInstanceState?.let {
+            binding.tvResultTitle.text = it.getString(LAND_SAVE) ?: "error"
         }
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
@@ -33,8 +33,6 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        //Null, так как устанавливалось до установки макета
 
         initClickListeners()
 
@@ -68,7 +66,7 @@ class SecondFragment : Fragment() {
         }
     }
 
-    private fun initClickListeners() {
+    public fun initClickListeners() {
         binding.buttonOne.setOnClickListener { checkAndSetResult(binding.buttonOne.text.toString()) }
         binding.buttonTwo.setOnClickListener { checkAndSetResult(binding.buttonTwo.text.toString()) }
         binding.buttonThree.setOnClickListener { checkAndSetResult(binding.buttonThree.text.toString()) }
@@ -76,6 +74,7 @@ class SecondFragment : Fragment() {
         binding.buttonFive.setOnClickListener { checkAndSetResult(binding.buttonFive.text.toString()) }
         binding.buttonSix.setOnClickListener { checkAndSetResult(binding.buttonSix.text.toString()) }
         binding.btBack.setOnClickListener {
+            binding.tvResultTitle.text.toString().makeToast()
             requireActivity()
                 .supportFragmentManager
                 .popBackStack()
@@ -84,6 +83,12 @@ class SecondFragment : Fragment() {
             binding.tvResultTitle.text = ""
             binding.etResult.text.clear()
         }
+    }
+    fun String.makeToast(){
+        this.isNotBlank() = Boolean
+            .let {Toast.makeText(context,this,Toast.LENGTH_SHORT).show()}
+
+
     }
 
 
