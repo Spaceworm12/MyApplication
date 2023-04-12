@@ -1,19 +1,17 @@
 package com.example.myapplication
-//Некорректное название пакета
 
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentSecondBinding
 
 
 class SecondFragment : Fragment() {
-    // Second - название файла не соответствует содержимому
-
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
 
@@ -21,8 +19,8 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        if (savedInstanceState != null) {
-            binding.tvResultTitle.text = savedInstanceState.getString(LAND_SAVE) ?: "error"
+        savedInstanceState?.let {
+            binding.tvResultTitle.text = it.getString(LAND_SAVE) ?: "error"
         }
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
@@ -34,55 +32,68 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //Null, так как устанавливалось до установки макета
-
         initClickListeners()
 
         binding.etResult.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (binding.etResult.length() > 2) {
-                    binding.etResult.setText(s.toString().drop(1))
-                    binding.etResult.setSelection(1)
+                with(binding) {
+                if (etResult.length() > 2) {
+                    etResult.setText(s.toString().drop(1))
+                    etResult.setSelection(1)
                 }
-                if (binding.etResult.text.isNotBlank()) checkAndSetResult(
-                    binding.etResult.text.last().toString()
+                if (etResult.text.isNotBlank()) checkAndSetResult(
+                    etResult.text.last().toString()
                 )
             }
+        }
 
             override fun afterTextChanged(s: Editable) {
             }
         })
     }
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString(LAND_SAVE, binding.tvResultTitle.text.toString())
     }
 
     private fun checkAndSetResult(text: String) {
-        when {
-            binding.tvResultTitle.length() == 2 -> binding.tvResultTitle.text =
-                String.format("%s%s", binding.tvResultTitle.text.drop(1), text)
-            else -> binding.tvResultTitle.text =
-                String.format("%s%s", binding.tvResultTitle.text, text)
+        with(binding) {
+            when {
+                tvResultTitle.length() == 2 -> tvResultTitle.text =
+                    String.format("%s%s", tvResultTitle.text.drop(1), text)
+                else -> tvResultTitle.text =
+                    String.format("%s%s", tvResultTitle.text, text)
+            }
         }
     }
 
     private fun initClickListeners() {
-        binding.buttonOne.setOnClickListener { checkAndSetResult(binding.buttonOne.text.toString()) }
-        binding.buttonTwo.setOnClickListener { checkAndSetResult(binding.buttonTwo.text.toString()) }
-        binding.buttonThree.setOnClickListener { checkAndSetResult(binding.buttonThree.text.toString()) }
-        binding.buttonFour.setOnClickListener { checkAndSetResult(binding.buttonFour.text.toString()) }
-        binding.buttonFive.setOnClickListener { checkAndSetResult(binding.buttonFive.text.toString()) }
-        binding.buttonSix.setOnClickListener { checkAndSetResult(binding.buttonSix.text.toString()) }
-        binding.btBack.setOnClickListener {
+        with(binding){
+        buttonOne.setOnClickListener { checkAndSetResult(binding.buttonOne.text.toString()) }
+        buttonTwo.setOnClickListener { checkAndSetResult(binding.buttonTwo.text.toString()) }
+        buttonThree.setOnClickListener { checkAndSetResult(binding.buttonThree.text.toString()) }
+        buttonFour.setOnClickListener { checkAndSetResult(binding.buttonFour.text.toString()) }
+        buttonFive.setOnClickListener { checkAndSetResult(binding.buttonFive.text.toString()) }
+        buttonSix.setOnClickListener { checkAndSetResult(binding.buttonSix.text.toString()) }
+        btBack.setOnClickListener {
+            tvResultTitle.text.toString().makeToast()
             requireActivity()
                 .supportFragmentManager
                 .popBackStack()
         }
-        binding.btClear.setOnClickListener {
-            binding.tvResultTitle.text = ""
-            binding.etResult.text.clear()
+        btClear.setOnClickListener {
+            tvResultTitle.text = ""
+            etResult.text.clear()}
+        }
+    }
+
+    private fun String.makeToast() {
+        if (this.isNotBlank()) {
+            Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "you write nothing", Toast.LENGTH_SHORT).show()
         }
     }
 
