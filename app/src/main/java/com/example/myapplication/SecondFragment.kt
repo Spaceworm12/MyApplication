@@ -3,13 +3,11 @@ package com.example.myapplication
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentSecondBinding
 
 
@@ -52,6 +50,7 @@ class SecondFragment : Fragment() {
             }
         })
     }
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString(LAND_SAVE, binding.tvResultTitle.text.toString())
@@ -84,11 +83,13 @@ class SecondFragment : Fragment() {
             binding.etResult.text.clear()
         }
     }
-    fun String.makeToast(){
-        this.isNotBlank() = Boolean
-            .let {Toast.makeText(context,this,Toast.LENGTH_SHORT).show()}
 
-
+    fun String.makeToast() {
+        if (this.isNotBlank()) {
+            Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "your write nothing", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
