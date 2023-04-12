@@ -37,14 +37,16 @@ class SecondFragment : Fragment() {
         binding.etResult.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (binding.etResult.length() > 2) {
-                    binding.etResult.setText(s.toString().drop(1))
-                    binding.etResult.setSelection(1)
+                with(binding) {
+                if (etResult.length() > 2) {
+                    etResult.setText(s.toString().drop(1))
+                    etResult.setSelection(1)
                 }
-                if (binding.etResult.text.isNotBlank()) checkAndSetResult(
-                    binding.etResult.text.last().toString()
+                if (etResult.text.isNotBlank()) checkAndSetResult(
+                    etResult.text.last().toString()
                 )
             }
+        }
 
             override fun afterTextChanged(s: Editable) {
             }
@@ -57,38 +59,41 @@ class SecondFragment : Fragment() {
     }
 
     private fun checkAndSetResult(text: String) {
-        when {
-            binding.tvResultTitle.length() == 2 -> binding.tvResultTitle.text =
-                String.format("%s%s", binding.tvResultTitle.text.drop(1), text)
-            else -> binding.tvResultTitle.text =
-                String.format("%s%s", binding.tvResultTitle.text, text)
+        with(binding) {
+            when {
+                tvResultTitle.length() == 2 -> tvResultTitle.text =
+                    String.format("%s%s", tvResultTitle.text.drop(1), text)
+                else -> tvResultTitle.text =
+                    String.format("%s%s", tvResultTitle.text, text)
+            }
         }
     }
 
-    public fun initClickListeners() {
-        binding.buttonOne.setOnClickListener { checkAndSetResult(binding.buttonOne.text.toString()) }
-        binding.buttonTwo.setOnClickListener { checkAndSetResult(binding.buttonTwo.text.toString()) }
-        binding.buttonThree.setOnClickListener { checkAndSetResult(binding.buttonThree.text.toString()) }
-        binding.buttonFour.setOnClickListener { checkAndSetResult(binding.buttonFour.text.toString()) }
-        binding.buttonFive.setOnClickListener { checkAndSetResult(binding.buttonFive.text.toString()) }
-        binding.buttonSix.setOnClickListener { checkAndSetResult(binding.buttonSix.text.toString()) }
-        binding.btBack.setOnClickListener {
-            binding.tvResultTitle.text.toString().makeToast()
+    private fun initClickListeners() {
+        with(binding){
+        buttonOne.setOnClickListener { checkAndSetResult(binding.buttonOne.text.toString()) }
+        buttonTwo.setOnClickListener { checkAndSetResult(binding.buttonTwo.text.toString()) }
+        buttonThree.setOnClickListener { checkAndSetResult(binding.buttonThree.text.toString()) }
+        buttonFour.setOnClickListener { checkAndSetResult(binding.buttonFour.text.toString()) }
+        buttonFive.setOnClickListener { checkAndSetResult(binding.buttonFive.text.toString()) }
+        buttonSix.setOnClickListener { checkAndSetResult(binding.buttonSix.text.toString()) }
+        btBack.setOnClickListener {
+            tvResultTitle.text.toString().makeToast()
             requireActivity()
                 .supportFragmentManager
                 .popBackStack()
         }
-        binding.btClear.setOnClickListener {
-            binding.tvResultTitle.text = ""
-            binding.etResult.text.clear()
+        btClear.setOnClickListener {
+            tvResultTitle.text = ""
+            etResult.text.clear()}
         }
     }
 
-    fun String.makeToast() {
+    private fun String.makeToast() {
         if (this.isNotBlank()) {
             Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(context, "your write nothing", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "you write nothing", Toast.LENGTH_SHORT).show()
         }
     }
 
